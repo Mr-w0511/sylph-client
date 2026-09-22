@@ -1,0 +1,114 @@
+name: sylph_client
+description: "Sylph IM Flutter client (web/windows/android)."
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.12.1
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+  cupertino_icons: ^1.0.8
+
+  # 网络 / 实时通道
+  dio: ^5.7.0
+  web_socket_channel: ^3.0.1
+
+  # 状态管理 / 路由
+  flutter_riverpod: ^2.6.1
+  go_router: ^14.6.2
+
+  # 本地缓存（web 走 drift wasm/worker，不依赖 sqlite3_flutter_libs）
+  drift: ^2.25.1
+  drift_flutter: ^0.2.4
+
+  # 安全存储（web 通过条件导入回退 localStorage，见 core/storage）
+  flutter_secure_storage: ^9.2.2
+  shared_preferences: ^2.3.3
+
+  # 工具
+  intl: any
+  uuid: ^4.5.1
+  crypto: ^3.0.6
+  path: ^1.9.0
+  file_picker: ^8.1.6
+  web: ^1.1.0
+
+  # 网络图片磁盘+内存缓存（头像/图片消息，低配服务器减少重复请求）
+  cached_network_image: ^3.4.1
+  # 显式声明：坏图时清理磁盘缓存（cached_network_image 的底层缓存管理器）
+  flutter_cache_manager: ^3.4.1
+
+  # 二维码：展示个人/群二维码（qr_flutter），扫码加好友/加群（mobile_scanner）
+  qr_flutter: ^4.1.0
+  mobile_scanner: ^6.0.2
+
+  # 语音消息：录制（record）+ 播放（audioplayers）
+  record: ^7.0.0
+  audioplayers: ^6.1.0
+
+  # #11 单聊语音通话：一对一 WebRTC 音频（TURN 可通过 sylph.call.ice-servers 配置）
+  flutter_webrtc: ^0.12.4
+
+  # 分享：站外分享链接/图片到微信等社交平台
+  share_plus: ^10.1.3
+
+  # 权限 / 图片查看与保存 / 文件路径 / 应用信息 / 外部链接
+  permission_handler: ^11.3.1
+  photo_view: ^0.15.0
+  gal: ^2.3.3
+  path_provider: ^2.1.4
+  package_info_plus: ^8.1.2
+  url_launcher: ^6.3.1
+
+  # 会话列表左滑快捷操作（置顶/终止/免打扰）
+  flutter_slidable: ^3.1.1
+
+  # 加密：P-256 ECDH + HKDF-SHA256 + AES-GCM（选型：cryptography，
+  # web 端走浏览器 WebCrypto，纯 Flutter 端走内置实现，可 pub get 通过）
+  cryptography: ^2.7.0
+  cryptography_flutter: ^2.3.4
+  lpinyin: ^2.0.3
+  flutter_local_notifications: ^22.3.1
+  google_mlkit_barcode_scanning: ^0.16.1
+  image_picker: ^1.2.3
+  video_player: ^2.14.0
+  geolocator: ^14.0.2
+  geocoding: ^5.0.0
+  flutter_foreground_task: ^11.0.3
+
+  # 屏幕适配：不同分辨率/密度设备上 UI 元素大小一致
+  flutter_screenutil: ^5.9.3
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
+  build_runner: ^2.4.13
+  drift_dev: ^2.25.1
+  # App 图标批量生成（Android 自适应 + iOS 全尺寸）
+  flutter_launcher_icons: ^0.14.4
+
+# flutter pub run flutter_launcher_icons 执行
+flutter_launcher_icons:
+  android: true
+  ios: true
+  # iOS 不允许透明通道，白底全幅图
+  image_path: "assets/icon/logo.png"
+  remove_alpha_ios: true
+  # Android 8+ 自适应图标：渐变底图 + 留白前景（图案在安全区内不被圆形裁剪）
+  adaptive_icon_background: "assets/icon/logo_background.png"
+  adaptive_icon_foreground: "assets/icon/logo_foreground.png"
+  min_sdk_android: 21
+
+flutter:
+  uses-material-design: true
+  generate: true
+
+  fonts:
+    - family: SylphZh
+      fonts:
+        - asset: assets/fonts/simhei.ttf

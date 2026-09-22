@@ -1,0 +1,7 @@
+2026/09/19-14:22:45.323 1ce0 Creating DB C:\Users\Mr.Wu\Desktop\sylph\client\.browser_profiles\ub\Default\IndexedDB\http_localhost_8000.indexeddb.leveldb since it was missing.
+2026/09/19-14:22:45.327 1ce0 Reusing MANIFEST C:\Users\Mr.Wu\Desktop\sylph\client\.browser_profiles\ub\Default\IndexedDB\http_localhost_8000.indexeddb.leveldb/MANIFEST-000001
+2026/09/19-14:22:45.333 5324 Level-0 table #5: started
+2026/09/19-14:22:45.335 5324 Level-0 table #5: 524 bytes OK
+2026/09/19-14:22:45.336 5324 Delete type=0 #3
+2026/09/19-14:22:45.337 1ce0 Manual compaction at level-0 from '\x00\x01\x00\x00\x00' @ 72057594037927935 : 1 .. '\x00\x02\x00\x00\x00' @ 0 : 0; will stop at (end)
+2026/09/19-14:22:45.404 5324 Manual compaction at level-0 from '\x00\x02\x00\x00\x00' @ 72057594037927935 : 1 .. '\x00\x03\x00\x00\x00' @ 0 : 0; will stop at (end)

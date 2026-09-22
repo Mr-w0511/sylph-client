@@ -1,0 +1,9 @@
+﻿abstract class SecureStore {
+  Future<String?> read(String key);
+  Future<void> write(String key, String value);
+  Future<void> delete(String key);
+}
+
+SecureStore createSecureStore() {
+  throw UnsupportedError('unsupported platform');
+}
