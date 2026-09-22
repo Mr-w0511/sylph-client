@@ -73,7 +73,10 @@ dependencies:
   cryptography_flutter: ^2.3.4
   lpinyin: ^2.0.3
   flutter_local_notifications: ^22.3.1
-  google_mlkit_barcode_scanning: ^0.16.1
+  # 锁定 0.13.0：该版本 iOS 依赖 GoogleMLKit/BarcodeScanning ~> 7.0.0，
+  # 与 mobile_scanner 6.0.2 的 iOS pod 版本一致，避免 CocoaPods 版本冲突
+  # （0.14+ 升到 9.0.0，与 mobile_scanner 6.x 的 7.0.0 不兼容导致 iOS 构建失败）。
+  google_mlkit_barcode_scanning: 0.13.0
   image_picker: ^1.2.3
   video_player: ^2.14.0
   geolocator: ^14.0.2
